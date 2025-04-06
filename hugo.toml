@@ -1,0 +1,73 @@
+baseURL = "https://cesairemh.com/"
+languageCode = "en-us"
+title = "Mounah Honoré Césaire"
+theme = "PaperMod"
+
+[params]
+  description = "Personal website and blog"
+  author = "Mounah Honoré Césaire"
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  disableSpecial1stPost = false
+  displayFullLangName = true
+
+[params.profileMode]
+enabled = true
+title = "Mounah Honoré Césaire"
+subtitle = "Ph.D Student"
+imageUrl = "/images/profile.jpg"
+imageTitle = "CesaireMH"
+
+[[params.profileMode.buttons]]
+name = "Blog"
+url = "/posts"
+
+[[params.profileMode.buttons]]
+name = "Projects"
+url = "/projects"
+
+[[params.profileMode.buttons]]
+name = "Resume"
+url = "/resume"
+
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/cesar237"
+
+[[params.socialIcons]]
+name = "linkedin"
+url = "https://linkedin.com/in/cesairemh"
+
+[[params.socialIcons]]
+name = "twitter"
+url = "https://twitter.com/cesar237"
+
+[menu]
+[[menu.main]]
+identifier = "about"
+name = "About"
+url = "/about/"
+weight = 10
+
+[[menu.main]]
+identifier = "news"
+name = "News"
+url = "/news/"
+weight = 20
+
+[[menu.main]]
+identifier = "papers"
+name = "Papers"
+url = "/papers/"
+weight = 30
+
+[[menu.main]]
+identifier = "resume"
+name = "Resume"
+url = "/resume/"
+weight = 40
