@@ -1,4 +1,4 @@
-baseURL = "https://localhost:1313/"
+baseURL = "https://cesaire.vercel.app/"
 languageCode = "en-us"
 title = "Mounah Honoré Césaire"
 theme = "PaperMod"
