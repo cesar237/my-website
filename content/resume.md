@@ -4,36 +4,22 @@ date: 2025-03-16
 draft: false
 ---
 
-# Your Name
-[Your location] | [your.email@example.com] | [Phone number]
+# Mounah Honoré Césaire
+[Inria - University of Rennes - Campus de Beaulieu] | [nohocesar@gmail.com]
 
 ## Summary
 
-[A brief professional summary highlighting your expertise and career goals]
-
-## Experience
-
-### Job Title - Company Name
-*Duration*
-
-- Achievement 1
-- Achievement 2
-- Achievement 3
-
-### Previous Job Title - Previous Company Name
-*Duration*
-
-- Achievement 1
-- Achievement 2
-- Achievement 3
+...
 
 ## Education
 
-### Degree - Institution
-*Duration*
+### PhD Student - Inria
+December 2022 - Now
 
-- Relevant coursework
-- Honors or achievements
+- PhD Thesis: Understanding Linux Scheduling Bottlenecks
+
+### Master in Computer Engineering - National Advanced School of Engineering of Yaounde
+September 2017 - October 2022 (5 Years)
 
 ## Skills
 
