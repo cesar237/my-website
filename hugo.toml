@@ -14,21 +14,26 @@ theme = "PaperMod"
   ShowCodeCopyButtons = true
   disableSpecial1stPost = false
   displayFullLangName = true
+  env = "production"
 
 [params.profileMode]
 enabled = true
 title = "Mounah Honoré Césaire"
-subtitle = "Ph.D Student"
-imageUrl = "/images/profile.jpg"
-imageTitle = "CesaireMH"
+subtitle = "Ph.D Student in Operating Systems and Networking @ Inria, Rennes, France."
+imageUrl = "profile.png"
+imageTitle = "Cesaire M.H."
 
 [[params.profileMode.buttons]]
-name = "Blog"
-url = "/posts"
+name = "News"
+url = "/news"
 
 [[params.profileMode.buttons]]
 name = "Projects"
 url = "/projects"
+
+[[params.profileMode.buttons]]
+name = "Papers"
+url = "/papers"
 
 [[params.profileMode.buttons]]
 name = "Resume"
@@ -61,10 +66,16 @@ url = "/news/"
 weight = 20
 
 [[menu.main]]
-identifier = "papers"
-name = "Papers"
+identifier = "publications"
+name = "Publications"
 url = "/papers/"
-weight = 30
+weight = 25
+
+[[menu.main]]
+identifier = "projects"
+name = "Projects"
+url = "/projects/"
+weight = 30 
 
 [[menu.main]]
 identifier = "resume"
