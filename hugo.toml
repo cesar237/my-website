@@ -19,7 +19,7 @@ theme = "PaperMod"
 enabled = true
 title = "Mounah Honoré Césaire"
 subtitle = "Ph.D Student"
-imageUrl = "/images/profile.jpg"
+imageUrl = "/images/profile.jpeg"
 imageTitle = "CesaireMH"
 
 [[params.profileMode.buttons]]
@@ -74,7 +74,7 @@ weight = 30
 identifier = "projects"
 name = "Projects"
 url = "/projects/"
-weight = 30
+weight = 30 
 
 [[menu.main]]
 identifier = "resume"
