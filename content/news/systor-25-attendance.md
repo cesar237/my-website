@@ -5,7 +5,7 @@ draft: false
 tags: ["personal", "blog", "research", "systor"]
 ---
 
-# Exciting News: Presenting at Systor 2025
+# Presenting at Systor 2025
 
 I'm thrilled to announce that I'll be presenting my work at the Systor 2025 virtual event! This is a fantastic opportunity to share my research with the systems community and connect with fellow researchers and practitioners.
 
