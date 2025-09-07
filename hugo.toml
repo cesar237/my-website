@@ -31,6 +31,10 @@ name = "Projects"
 url = "/projects"
 
 [[params.profileMode.buttons]]
+name = "Papers"
+url = "/papers"
+
+[[params.profileMode.buttons]]
 name = "Resume"
 url = "/resume"
 
@@ -64,6 +68,12 @@ weight = 20
 identifier = "papers"
 name = "Papers"
 url = "/papers/"
+weight = 30
+
+[[menu.main]]
+identifier = "projects"
+name = "Projects"
+url = "/projects/"
 weight = 30
 
 [[menu.main]]
