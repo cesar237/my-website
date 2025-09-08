@@ -60,7 +60,7 @@ I am a PhD student in Computer Science (expected Dec 2025) with expertise in **o
 
 ---
 
-## Projects
+<!-- ## Projects
 
 ### HookFS
 [Link to Demo](https://some-link.com)  
@@ -74,7 +74,7 @@ A VPN-agnostic split tunneling tool for secure, context-aware routing.
 [Link to Demo](https://some-link.com)  
 A personal relationship management app with AI-assisted reminders and notes.
 
----
+--- -->
 
 ## Education
 
