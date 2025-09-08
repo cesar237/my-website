@@ -4,8 +4,6 @@ date: 2025-03-16
 draft: false
 ---
 
-# Honoré Césaire MOUNAH
-
 **GitHub:** [CesarMH](https://github.com/cesar237) | **LinkedIn:** [cesairemh](https://linkedin.com/in/cesairemh) | **Website:** [cesaire.netlify.app](https://cesaire.netlify.app) | **Email:** [nohocesar@gmail.com](mailto:nohocesar@gmail.com)
 
 <a href="CV.pdf" download="Cesaire_CV.pdf" class="download-button">
@@ -18,6 +16,14 @@ draft: false
 ## Summary
 
 I am a PhD student in Computer Science (expected Dec 2025) with expertise in **operating systems, Linux kernel scheduling, performance optimization, and heterogeneous CPU architectures**. Skilled in **low-level systems programming** (C/C++), benchmarking, and prototyping secure and high-performance systems, I have strong experience in leading projects, communicating technical results, and collaborating across teams. Seeking roles as R&D Engineer, Software Engineer, System Developer, or System Architect.
+
+---
+
+## Publications
+
+- **The Impact of Kernel Asynchronous APIs on the Performance of a Kernel VPN** - *Honore Cesaire Mounah, Djob Mvondo, Julia Lawall, Yerom-David Bromberg* - Proceedings of the 18th ACM International Systems and Storage Conference (SYSTOR '25), 2025. [DOI](https://doi.org/10.1145/3757347.3759133)
+  
+  **Abstract:** Linux kernel VPNs suffer from severe performance degradation under high load due to execution order inversion (EoI), a phenomenon where packet recombination functions preempt earlier pipeline stages. This leads to severe latency spikes and throughput reductions. We investigate kernel threads and workqueues as alternative kernel asynchronous APIs to address these limitations, achieving up to a 4.7x increase in throughput while reducing tail latency by 65%. These results demonstrate the importance of selecting appropriate kernel asynchronous APIs for kernel-level network applications.
 
 ---
 
@@ -77,12 +83,6 @@ A personal relationship management app with AI-assisted reminders and notes.
 **2022 - present:** PhD at **INRIA, University of Rennes, France**
 
 **2017 - 2022:** Engineering Degree in Computer Science, **National Advanced School of Engineering, Yaounde, Cameroon**
-
----
-
-## Publications
-
-*[Publications would be listed here from the bibliography file]*
 
 ---
 
