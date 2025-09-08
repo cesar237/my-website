@@ -7,7 +7,8 @@ showToc: false
 
 ## Hi, I'm Mounah Honoré Césaire!
 
-I am a Ph.D. student specializing in Operating Systems and Networks. My research focuses on VPN application scalability and CPU scheduling on heterogeneous architectures. I'm passionate about solving complex computing problems and advancing the field of computer science through innovative research.
+I am a Ph.D. student specializing in Operating Systems and Networks, under the supervision of [Prof. David Bromberg](https://www.linkedin.com/in/ybromberg/), Full Professor at the University of Rennes, [Dr. Julia Lawall](https://who.paris.inria.fr/Julia.Lawall/), Head of Research at Inria Paris, and [Dr. Djob Mvondo](https://djobiii2078.github.io/), Associate Professor at the University of Rennes.
+My research focuses on VPN application scalability and CPU scheduling on heterogeneous architectures. I'm passionate about solving complex computing problems and advancing the field of computer science through innovative research.
 
 ### My Background
 

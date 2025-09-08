@@ -14,7 +14,7 @@ theme = "PaperMod"
   ShowCodeCopyButtons = true
   disableSpecial1stPost = false
   displayFullLangName = true
-  env = "production"
+  env = "development"
 
 [params.profileMode]
 enabled = true
