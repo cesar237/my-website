@@ -6,9 +6,7 @@ draft: false
 
 **GitHub:** [CesarMH](https://github.com/cesar237) | **LinkedIn:** [cesairemh](https://linkedin.com/in/cesairemh) | **Website:** [cesaire.netlify.app](https://cesaire.netlify.app) | **Email:** [nohocesar@gmail.com](mailto:nohocesar@gmail.com)
 
-<a href="CV.pdf" download="Cesaire_CV.pdf" class="download-button">
-    📄 Download Resume
-</a>
+**[Download CV (PDF)](/CV.pdf)**
 
 
 ---
@@ -62,7 +60,7 @@ I am a PhD student in Computer Science (expected Dec 2025) with expertise in **o
 
 ---
 
-## Projects
+<!-- ## Projects
 
 ### HookFS
 [Link to Demo](https://some-link.com)  
@@ -76,7 +74,7 @@ A VPN-agnostic split tunneling tool for secure, context-aware routing.
 [Link to Demo](https://some-link.com)  
 A personal relationship management app with AI-assisted reminders and notes.
 
----
+--- -->
 
 ## Education
 
