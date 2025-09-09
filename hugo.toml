@@ -1,5 +1,6 @@
-baseURL = "https://cesaire.netlify.app/"
-# baseURL = "https://localhost:1313/"
+baseURL = "https://www.cesairemh.com/"
+#baseURL = "https://cesaire.netlify.app/"
+#baseURL = "https://localhost:1313/"
 languageCode = "en-us"
 title = "Mounah Honoré Césaire"
 theme = "PaperMod"
