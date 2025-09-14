@@ -11,4 +11,4 @@ tags: ["publications", "Systor"]
   
   **Abstract:** Linux kernel VPNs suffer from severe performance degradation under high load due to execution order inversion (EoI), a phenomenon where packet recombination functions preempt earlier pipeline stages. This leads to severe latency spikes and throughput reductions. We investigate kernel threads and workqueues as alternative kernel asynchronous APIs to address these limitations, achieving up to a 4.7x increase in throughput while reducing tail latency by 65%. These results demonstrate the importance of selecting appropriate kernel asynchronous APIs for kernel-level network applications.
 
-  **[Paper](paper-systor-2025.pdf)** **[Video](https://www.youtube.com/watch?v=uHEjmt6Vfrg)** **[Slides](systor-2025.pdf)**
+  **[Paper](/paper-systor-2025.pdf)** **[Video](https://www.youtube.com/watch?v=uHEjmt6Vfrg)** **[Slides](/systor-2025.pdf)**
