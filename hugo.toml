@@ -29,9 +29,9 @@ imageTitle = "Cesaire M.H."
 name = "News"
 url = "/news"
 
-[[params.profileMode.buttons]]
-name = "Projects"
-url = "/projects"
+#[[params.profileMode.buttons]]
+#name = "Projects"
+#url = "/projects"
 
 [[params.profileMode.buttons]]
 name = "Papers"
@@ -73,11 +73,11 @@ name = "Publications"
 url = "/papers/"
 weight = 25
 
-[[menu.main]]
-identifier = "projects"
-name = "Projects"
-url = "/projects/"
-weight = 30 
+#[[menu.main]]
+#identifier = "projects"
+#name = "Projects"
+#url = "/projects/"
+#weight = 30 
 
 [[menu.main]]
 identifier = "resume"
