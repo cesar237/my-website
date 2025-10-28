@@ -31,6 +31,15 @@ My academic journey has provided me with a strong foundation in computer science
 - System Performance Optimization
 - Research Methodology and Data Analysis
 
+### Soft Skills
+
+- Communication
+- Problem-solving
+- Adaptability
+- Teamwork \& Collaboration
+- Analytical mindset
+
+
 ### Personal Interests
 
 When I'm not immersed in research, I enjoy:
