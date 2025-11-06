@@ -7,6 +7,7 @@ draft: false
 **GitHub:** [CesarMH](https://github.com/cesar237) | **LinkedIn:** [cesairemh](https://linkedin.com/in/cesairemh) | **Website:** [cesaire.netlify.app](https://cesaire.netlify.app) | **Email:** [nohocesar@gmail.com](mailto:nohocesar@gmail.com)
 
 **[Download CV (PDF)](/CV.pdf)**
+**[Academic CV (PDF)](/ACADEMIC-CV.pdf)**
 
 
 ---
