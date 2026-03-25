@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art Awards Ranking</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0a0a0f;--surface:#111118;--surface2:#18181f;--border:rgba(255,255,255,0.07);--text:#e8e8ef;--muted:#888898;--faint:#444458;--s-bg:#1a1400;--s-text:#FFD700;--s-border:#8a7000;--a-bg:#180808;--a-text:#ff7575;--a-border:#8a2020;--b-bg:#081418;--b-text:#4ecdc4;--b-border:#1a5a58;--c-bg:#0f0818;--c-text:#b89fd8;--c-border:#4a3568;--d-bg:#111111;--d-text:#777;--d-border:#333}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-weight:300;min-height:100vh}
+  header{border-bottom:1px solid var(--border);padding:2.5rem 2rem 1.5rem;max-width:1200px;margin:0 auto}
+  .site-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.4rem}
+  h1{font-family:'DM Serif Display',serif;font-size:clamp(28px,5vw,48px);font-weight:400;line-height:1.1}
+  .subtitle{font-size:13px;color:var(--muted);margin-top:.5rem}
+  .controls{max-width:1200px;margin:0 auto;padding:1.2rem 2rem;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:.8rem}
+  .controls-row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+  .tab{padding:5px 11px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.5px;cursor:pointer;border-radius:2px;transition:all .15s}
+  .tab:hover{border-color:var(--faint);color:var(--text)}
+  .tab.active{background:var(--surface2);border-color:var(--faint);color:var(--text)}
+  .tier-btn{padding:5px 11px;border:1px solid transparent;background:transparent;font-family:'DM Mono',monospace;font-size:11px;font-weight:500;cursor:pointer;border-radius:2px;transition:all .15s;letter-spacing:1px}
+  .tier-btn[data-tier="S"]{color:var(--s-text);border-color:var(--s-border)}
+  .tier-btn[data-tier="A"]{color:var(--a-text);border-color:var(--a-border)}
+  .tier-btn[data-tier="B"]{color:var(--b-text);border-color:var(--b-border)}
+  .tier-btn[data-tier="C"]{color:var(--c-text);border-color:var(--c-border)}
+  .tier-btn[data-tier="D"]{color:var(--d-text);border-color:var(--d-border)}
+  .tier-btn.dimmed{opacity:.22}
+  .search-wrap{position:relative;margin-left:auto}
+  .search-wrap input{background:var(--surface2);border:1px solid var(--border);color:var(--text);font-family:'DM Mono',monospace;font-size:11px;padding:6px 12px 6px 28px;border-radius:2px;width:200px;outline:none}
+  .search-wrap input::placeholder{color:var(--faint)}
+  .search-wrap input:focus{border-color:var(--faint)}
+  .search-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--faint);font-size:12px;pointer-events:none}
+  .stats-bar{max-width:1200px;margin:0 auto;padding:.8rem 2rem;display:flex;gap:2rem;font-family:'DM Mono',monospace;font-size:10px;color:var(--faint);border-bottom:1px solid var(--border)}
+  .stats-bar span{color:var(--muted)}
+  main{max-width:1200px;margin:0 auto;padding:2rem}
+  .tier-section{margin-bottom:2.5rem}
+  .tier-header{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+  .tier-badge{font-family:'DM Mono',monospace;font-size:18px;font-weight:500;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid;border-radius:3px;flex-shrink:0}
+  .tier-badge.S{color:var(--s-text);border-color:var(--s-border);background:var(--s-bg)}
+  .tier-badge.A{color:var(--a-text);border-color:var(--a-border);background:var(--a-bg)}
+  .tier-badge.B{color:var(--b-text);border-color:var(--b-border);background:var(--b-bg)}
+  .tier-badge.C{color:var(--c-text);border-color:var(--c-border);background:var(--c-bg)}
+  .tier-badge.D{color:var(--d-text);border-color:var(--d-border);background:var(--d-bg)}
+  .tier-desc{font-size:12px;color:var(--muted)}
+  .tier-desc strong{color:var(--text);font-weight:500}
+  .awards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--border);border:1px solid var(--border)}
+  .award-card{background:var(--surface);padding:1.1rem 1.3rem;transition:background .12s}
+  .award-card:hover{background:var(--surface2)}
+  .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem;margin-bottom:5px}
+  .award-name{font-size:14px;font-weight:500;color:var(--text);line-height:1.3}
+  .award-rank{font-family:'DM Mono',monospace;font-size:10px;color:var(--faint);flex-shrink:0;padding-top:2px}
+  .award-org{font-size:11px;color:var(--muted);margin-bottom:8px}
+  .card-meta{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px}
+  .meta-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.5px;padding:2px 6px;border:1px solid var(--border);border-radius:2px;color:var(--muted)}
+  .award-notes{font-size:11px;color:var(--faint);line-height:1.5;font-style:italic}
+  .no-results{padding:3rem 2rem;text-align:center;color:var(--muted);font-size:13px}
+  .divider{width:1px;height:14px;background:var(--border)}
+  footer{border-top:1px solid var(--border);max-width:1200px;margin:2rem auto 0;padding:1.5rem 2rem;font-size:11px;color:var(--faint);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+  @media(max-width:640px){header,.controls,main,.stats-bar,footer{padding-left:1rem;padding-right:1rem}.awards-grid{grid-template-columns:1fr}.search-wrap{margin-left:0}.search-wrap input{width:100%}}
+</style>
+</head>
+<body>
+<header>
+  <span class="site-label">Awards Index</span>
+  <h1>Art Awards<br><em>Ranking</em></h1>
+  <p class="subtitle">S/A/B/C/D ranking of major awards across nine art domains — modeled after academic conference rankings.</p>
+</header>
+
+<div class="controls">
+  <div class="controls-row" id="domainTabs">
+    <button class="tab active" data-domain="all">All</button>
+    <button class="tab" data-domain="Music">Music</button>
+    <button class="tab" data-domain="Cinema">Cinema</button>
+    <button class="tab" data-domain="Literature">Literature</button>
+    <button class="tab" data-domain="TV">Television</button>
+    <button class="tab" data-domain="Video Games">Video Games</button>
+    <button class="tab" data-domain="Photography">Photography</button>
+    <button class="tab" data-domain="Journalism">Journalism</button>
+    <button class="tab" data-domain="Architecture & Design">Architecture</button>
+    <button class="tab" data-domain="Visual Arts">Visual Arts</button>
+  </div>
+  <div class="controls-row">
+    <div style="display:flex;gap:5px;align-items:center" id="tierFilters">
+      <button class="tier-btn" data-tier="S">S</button>
+      <span class="divider"></span>
+      <button class="tier-btn" data-tier="A">A</button>
+      <button class="tier-btn" data-tier="B">B</button>
+      <button class="tier-btn" data-tier="C">C</button>
+      <button class="tier-btn" data-tier="D">D</button>
+    </div>
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input type="text" id="searchInput" placeholder="Search awards..." />
+    </div>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div>SHOWING <span id="statCount">0</span> AWARDS</div>
+  <div>ACROSS <span id="statDomains">0</span> DOMAINS</div>
+</div>
+
+<main id="mainContent"></main>
+
+<footer>
+  <span>Art Awards Ranking · 2025</span>
+  <span>Rankings based on global reach, jury independence, longevity &amp; cultural impact</span>
+</footer>
+
+<script>
+const DC={Music:'#f59e0b',Cinema:'#60a5fa',Literature:'#34d399',TV:'#f472b6','Video Games':'#a78bfa',Photography:'#fb923c',Journalism:'#94a3b8','Architecture & Design':'#fcd34d','Visual Arts':'#f87171'};
+const DATA={
+Music:[
+{name:'Grammy Awards',org:'Recording Academy / NARAS',since:1959,tier:'S',region:'USA',notes:'Biggest mainstream music awards globally'},
+{name:'Brit Awards',org:'BPI',since:1977,tier:'S',region:'UK',notes:'Premier UK music ceremony'},
+{name:'MTV VMAs',org:'MTV',since:1984,tier:'A',region:'USA',notes:'Pop culture spectacle, major viewership'},
+{name:'Billboard Music Awards',org:'Billboard / Dick Clark Prods',since:1990,tier:'A',region:'USA',notes:'Chart-based performance recognition'},
+{name:'American Music Awards',org:'Dick Clark Prods',since:1973,tier:'A',region:'USA',notes:'Fan-voted, very popular'},
+{name:'Ivor Novello Awards',org:'BASCA',since:1956,tier:'A',region:'UK',notes:'Songwriting & composing prestige'},
+{name:'Mercury Prize',org:'PPL / BPI',since:1992,tier:'B',region:'UK',notes:'Best UK/Irish album, critical weight'},
+{name:'NME Awards',org:'NME',since:2001,tier:'B',region:'UK',notes:'Indie/alternative focus'},
+{name:'Latin Grammy Awards',org:'Latin Recording Academy',since:2000,tier:'B',region:'USA/Intl',notes:'Premier Latin music recognition'},
+{name:'ARIA Music Awards',org:'ARIA',since:1987,tier:'B',region:'Australia',notes:'Australian music industry peak'},
+{name:'Juno Awards',org:'CARAS',since:1971,tier:'B',region:'Canada',notes:'Canadian music recognition'},
+{name:'MOBO Awards',org:'MOBO Organisation',since:1996,tier:'C',region:'UK',notes:'Music of Black Origin, cultural significance'},
+{name:'MTV EMAs',org:'MTV Europe',since:1994,tier:'C',region:'Europe',notes:'European music ceremony'},
+{name:'Kerrang! Awards',org:'Kerrang!',since:1993,tier:'C',region:'UK',notes:'Rock/metal niche'},
+{name:'Q Awards',org:'Q Magazine',since:1990,tier:'C',region:'UK',notes:'Rock/indie focus, legacy'},
+{name:'Global Awards',org:'Bauer Media',since:2018,tier:'D',region:'UK',notes:'Commercial radio-driven, newer'},
+{name:'Teen Choice Awards (Music)',org:'Fox',since:1999,tier:'D',region:'USA',notes:'Teen demographic, fan-voted'},
+{name:'Radio Disney Music Awards',org:'Disney',since:2013,tier:'D',region:'USA',notes:'Children/teen focus, discontinued 2021'},
+],
+Cinema:[
+{name:'Academy Awards (Oscars)',org:'AMPAS',since:1929,tier:'S',region:'USA',notes:'Most prestigious film awards worldwide'},
+{name:'Cannes Film Festival',org:'Cannes Festival',since:1946,tier:'S',region:'France',notes:'Top international auteur cinema prestige'},
+{name:'Venice Film Festival',org:'La Biennale di Venezia',since:1932,tier:'S',region:'Italy',notes:'Oldest film festival, Golden Lion'},
+{name:'BAFTA Awards',org:'BAFTA',since:1955,tier:'S',region:'UK',notes:'UK equivalent of Oscars, global reach'},
+{name:'Berlin International Film Festival',org:'Berlinale',since:1951,tier:'A',region:'Germany',notes:'Golden Bear, politically engaged cinema'},
+{name:'Golden Globe Awards',org:'HFPA / Dick Clark Prods',since:1944,tier:'A',region:'USA',notes:'Precursor to Oscars, film & TV'},
+{name:'Screen Actors Guild Awards',org:'SAG-AFTRA',since:1995,tier:'A',region:'USA',notes:'Peer-voted acting awards'},
+{name:'César Awards',org:'Académie des Arts et Techniques',since:1976,tier:'A',region:'France',notes:'French national film awards'},
+{name:'Sundance Film Festival',org:'Sundance Institute',since:1978,tier:'A',region:'USA',notes:'Premier indie film platform'},
+{name:'Toronto International Film Festival',org:'TIFF',since:1976,tier:'B',region:'Canada',notes:"People's Choice, Oscar bellwether"},
+{name:'European Film Awards',org:'European Film Academy',since:1988,tier:'B',region:'Europe',notes:'Pan-European recognition'},
+{name:'Independent Spirit Awards',org:'Film Independent',since:1986,tier:'B',region:'USA',notes:'Independent American cinema'},
+{name:'David di Donatello Awards',org:'Accademia del Cinema',since:1956,tier:'B',region:'Italy',notes:'Italian national film awards'},
+{name:'Goya Awards',org:'Academia de Cine',since:1987,tier:'B',region:'Spain',notes:'Spanish national film awards'},
+{name:'MTV Movie & TV Awards',org:'MTV',since:1992,tier:'C',region:'USA',notes:'Popular/blockbuster focus, fan-voted'},
+{name:"People's Choice Awards",org:"E!",since:1975,tier:'C',region:'USA',notes:'Fan-voted popularity contest'},
+{name:'Razzie Awards',org:'Golden Raspberry Foundation',since:1981,tier:'C',region:'USA',notes:'Anti-awards for worst films'},
+{name:'Saturn Awards',org:'Academy of SF/Fantasy/Horror',since:1972,tier:'C',region:'USA',notes:'Genre cinema recognition'},
+{name:'Empire Awards',org:'Empire Magazine',since:1995,tier:'D',region:'UK',notes:'Reader-voted genre focus'},
+{name:'Teen Choice Awards (Film)',org:'Fox',since:1999,tier:'D',region:'USA',notes:'Teen demographic'},
+],
+Literature:[
+{name:'Nobel Prize in Literature',org:'Swedish Academy',since:1901,tier:'S',region:'Sweden/Intl',notes:'Highest literary honor globally'},
+{name:'Booker Prize',org:'Booker Prize Foundation',since:1969,tier:'S',region:'UK/Intl',notes:'Premier English-language fiction prize'},
+{name:'Pulitzer Prize (Letters)',org:'Columbia University',since:1917,tier:'S',region:'USA',notes:'Most prestigious US literary awards'},
+{name:'Prix Goncourt',org:'Académie Goncourt',since:1903,tier:'S',region:'France',notes:'Most prestigious French literary prize'},
+{name:'National Book Award',org:'National Book Foundation',since:1950,tier:'A',region:'USA',notes:'Major US recognition for fiction/non-fiction/poetry'},
+{name:'International Booker Prize',org:'Booker Prize Foundation',since:2005,tier:'A',region:'UK/Intl',notes:'Best translated fiction into English'},
+{name:'PEN/Faulkner Award',org:'PEN America',since:1981,tier:'A',region:'USA',notes:'Peer-voted US fiction prize'},
+{name:'Costa Book Awards',org:'Costa / Booksellers Assoc',since:1971,tier:'A',region:'UK',notes:'Accessible quality fiction/non-fiction'},
+{name:'Hugo Award',org:'World Science Fiction Society',since:1953,tier:'B',region:'USA/Intl',notes:'Premier sci-fi/fantasy fan award'},
+{name:'Nebula Award',org:'SFWA',since:1966,tier:'B',region:'USA',notes:'Peer-voted sci-fi/fantasy'},
+{name:"Women's Prize for Fiction",org:'Various sponsors',since:1996,tier:'B',region:'UK',notes:'Female authors writing in English'},
+{name:'Prix Médicis',org:'Prix Médicis Jury',since:1958,tier:'B',region:'France',notes:'French literary prize for innovation'},
+{name:'Edgar Award',org:'Mystery Writers of America',since:1954,tier:'C',region:'USA',notes:'Crime/mystery/thriller genre'},
+{name:'Arthur C. Clarke Award',org:'Arthur C. Clarke Award',since:1987,tier:'C',region:'UK',notes:'Best sci-fi published in UK'},
+{name:'British Book Awards (Nibbies)',org:'The Bookseller',since:1990,tier:'C',region:'UK',notes:'Broader book industry recognition'},
+{name:'Goodreads Choice Awards',org:'Goodreads',since:2009,tier:'D',region:'USA/Intl',notes:'Popular reader-voted'},
+{name:'Amazon Publishing Awards',org:'Amazon',since:2011,tier:'D',region:'USA/Intl',notes:'Commercial/reader popularity'},
+],
+TV:[
+{name:'Emmy Awards (Primetime)',org:'Television Academy',since:1949,tier:'S',region:'USA',notes:'Most prestigious television awards'},
+{name:'BAFTA Television Awards',org:'BAFTA',since:1955,tier:'S',region:'UK',notes:'Premier UK TV recognition'},
+{name:'Golden Globe Awards (TV)',org:'HFPA / Dick Clark Prods',since:1944,tier:'S',region:'USA',notes:'Prestige precursor, film & TV combined'},
+{name:'Screen Actors Guild (TV)',org:'SAG-AFTRA',since:1995,tier:'A',region:'USA',notes:'Peer-voted ensemble TV acting'},
+{name:'Critics Choice Television Awards',org:'Critics Choice Assoc',since:2011,tier:'A',region:'USA',notes:'Critic-voted, growing prestige'},
+{name:'Peabody Awards',org:'Univ of Georgia',since:1940,tier:'A',region:'USA',notes:'Electronic media excellence'},
+{name:'Writers Guild Awards (TV)',org:'WGA',since:1958,tier:'A',region:'USA',notes:'Peer-voted writing excellence'},
+{name:'Directors Guild Awards (TV)',org:'DGA',since:1948,tier:'A',region:'USA',notes:'Peer-voted directing excellence'},
+{name:'International Emmy Awards',org:'IATAS',since:1969,tier:'B',region:'USA/Intl',notes:'Non-US TV production recognition'},
+{name:'Monte-Carlo TV Festival',org:'Monte-Carlo TV Fest',since:1961,tier:'B',region:'Monaco',notes:'International drama and comedy'},
+{name:"Rose d'Or",org:'European Broadcasting Union',since:1961,tier:'B',region:'Europe',notes:'Best in European entertainment TV'},
+{name:'GLAAD Media Awards (TV)',org:'GLAAD',since:1990,tier:'B',region:'USA',notes:'LGBTQ+ representation recognition'},
+{name:'Teen Choice Awards (TV)',org:'Fox',since:1999,tier:'C',region:'USA',notes:'Teen demographic, fan-voted'},
+{name:"People's Choice Awards (TV)",org:"E!",since:1975,tier:'C',region:'USA',notes:'Fan-voted popularity'},
+{name:'MTV Movie & TV Awards (TV)',org:'MTV',since:1992,tier:'C',region:'USA',notes:'Pop culture/genre television'},
+{name:'Soap Opera Digest Awards',org:'Soap Opera Digest',since:1976,tier:'D',region:'USA',notes:'Daytime drama niche'},
+{name:'Daytime Emmy Awards',org:'NATAS',since:1974,tier:'D',region:'USA',notes:'Daytime programming, separate body'},
+],
+'Video Games':[
+{name:'The Game Awards',org:'Geoff Keighley',since:2014,tier:'S',region:'USA',notes:'Most-watched gaming ceremony, industry benchmark'},
+{name:'BAFTA Games Awards',org:'BAFTA',since:2004,tier:'S',region:'UK',notes:'Prestige UK recognition, peer-evaluated'},
+{name:'D.I.C.E. Awards',org:'AIAS',since:1998,tier:'A',region:'USA',notes:'Peer-voted by game developers'},
+{name:'Game Developers Choice Awards',org:'GDC',since:1999,tier:'A',region:'USA',notes:'Developer-peer recognition'},
+{name:'Golden Joystick Awards',org:'Future plc',since:1983,tier:'A',region:'UK',notes:"World's longest-running games awards"},
+{name:'IGN Awards',org:'IGN',since:1996,tier:'B',region:'USA',notes:'Major gaming media outlet'},
+{name:'Game Critics Awards (E3)',org:'Game Critics',since:1996,tier:'B',region:'USA',notes:'Best of show at E3'},
+{name:'Games for Change Awards',org:'Games for Change',since:2004,tier:'B',region:'USA',notes:'Games with social impact'},
+{name:'New York Game Awards',org:'NY Videogame Critics Circle',since:2013,tier:'B',region:'USA',notes:'Regional but growing prestige'},
+{name:'Gamescom Awards',org:'Koelnmesse',since:2009,tier:'C',region:'Germany',notes:'Best of Gamescom show floor'},
+{name:'Steam Awards',org:'Valve',since:2016,tier:'C',region:'USA/Intl',notes:'PC gaming, community-voted'},
+{name:'Japan Game Awards',org:'CESA',since:1996,tier:'C',region:'Japan',notes:'Japanese market recognition'},
+{name:'Famitsu Awards',org:'Famitsu / Enterbrain',since:2006,tier:'C',region:'Japan',notes:'Japanese gaming media recognition'},
+{name:'Kids Choice Awards (Games)',org:'Nickelodeon',since:2003,tier:'D',region:'USA',notes:'Children/casual gaming audience'},
+{name:"Gamers' Choice Awards",org:'Various',since:2015,tier:'D',region:'USA',notes:'Community fan votes'},
+],
+Photography:[
+{name:'World Press Photo Award',org:'World Press Photo Foundation',since:1955,tier:'S',region:'Netherlands/Intl',notes:'Most prestigious photojournalism award globally'},
+{name:'Pulitzer Prize (Photography)',org:'Columbia University',since:1942,tier:'S',region:'USA',notes:'Breaking News & Feature Photography — peak US prestige'},
+{name:'Prix Pictet',org:'Pictet Group',since:2008,tier:'S',region:'Switzerland/Intl',notes:'Premier award for photography & sustainability, major museum circuit'},
+{name:'Deutsche Börse Photography Foundation Prize',org:'Deutsche Börse / Photographers Gallery',since:1996,tier:'A',region:'UK/Germany',notes:'Most prestigious European contemporary photography prize'},
+{name:'Sony World Photography Awards',org:'World Photography Organisation',since:2008,tier:'A',region:'UK/Intl',notes:'Largest photographic competition globally by entries'},
+{name:'Hasselblad Award',org:'Hasselblad Foundation',since:1980,tier:'A',region:'Sweden',notes:'Lifetime achievement, considered the Nobel of photography'},
+{name:'ICP Infinity Awards',org:'International Center of Photography',since:1985,tier:'A',region:'USA',notes:'Recognized across documentary, art, and applied photography'},
+{name:'Pictures of the Year International',org:'Missouri School of Journalism',since:1944,tier:'B',region:'USA',notes:'Oldest and most respected photojournalism competition'},
+{name:'NPPA Best of Photojournalism',org:'National Press Photographers Assoc',since:1943,tier:'B',region:'USA',notes:'Peer-judged US photojournalism recognition'},
+{name:'Taylor Wessing Photographic Portrait Prize',org:'National Portrait Gallery',since:1993,tier:'B',region:'UK',notes:'Leading portrait photography prize'},
+{name:'Wildlife Photographer of the Year',org:'Natural History Museum London',since:1965,tier:'B',region:'UK/Intl',notes:'Premier nature photography recognition'},
+{name:'Foam Paul Huf Award',org:'Foam Photography Museum',since:2003,tier:'B',region:'Netherlands',notes:'International award for photographers under 35'},
+{name:'Paris Photo-Aperture PhotoBook Awards',org:'Paris Photo / Aperture',since:2012,tier:'B',region:'France/USA',notes:'Highest recognition for photography books'},
+{name:'Siena International Photo Awards',org:'Siena Awards',since:2016,tier:'C',region:'Italy/Intl',notes:'Growing international competition, strong jury'},
+{name:'International Photography Awards (IPA)',org:'Lucie Foundation',since:2003,tier:'C',region:'USA/Intl',notes:'Broad competition, multiple categories'},
+{name:'Lucie Awards',org:'Lucie Foundation',since:2003,tier:'C',region:'USA',notes:'Celebrating masters and emerging photographers'},
+{name:'National Geographic Photo Contest',org:'National Geographic',since:1905,tier:'C',region:'USA/Intl',notes:'Huge reach, editorial credibility of NatGeo brand'},
+{name:'iPhone Photography Awards',org:'IPPAWARDS',since:2007,tier:'D',region:'USA/Intl',notes:'Mobile photography niche'},
+{name:'500px Awards',org:'500px',since:2009,tier:'D',region:'Canada/Intl',notes:'Community platform contest, popularity-driven'},
+],
+Journalism:[
+{name:'Pulitzer Prize (Journalism)',org:'Columbia University',since:1917,tier:'S',region:'USA',notes:'Most prestigious journalism award globally — 15 categories'},
+{name:'Peabody Awards (Journalism)',org:'Univ of Georgia',since:1940,tier:'S',region:'USA',notes:'Broadcasting & journalism excellence, highest US broadcast honor'},
+{name:'Prix Albert Londres',org:'Prix Albert Londres Foundation',since:1933,tier:'S',region:'France',notes:'Most prestigious French journalism prize — print & broadcast'},
+{name:'George Polk Awards',org:'Long Island University',since:1949,tier:'A',region:'USA',notes:'Investigative and courageous reporting recognition'},
+{name:'IRE Awards',org:'Investigative Reporters & Editors',since:1979,tier:'A',region:'USA',notes:'Premier investigative journalism peer recognition'},
+{name:'Overseas Press Club Awards',org:'OPC',since:1939,tier:'A',region:'USA/Intl',notes:'International reporting recognition, multiple categories'},
+{name:'Emmy Awards (News & Documentary)',org:'NATAS',since:1948,tier:'A',region:'USA',notes:'Television journalism and documentary excellence'},
+{name:'Sigma Delta Chi Awards',org:'Society of Professional Journalists',since:1932,tier:'A',region:'USA',notes:'Broad journalism excellence across all media'},
+{name:'Bayeux Calvados-Normandy Award',org:'City of Bayeux',since:1994,tier:'A',region:'France/Intl',notes:'War correspondents recognition'},
+{name:'ICIJ Cross-border Investigations',org:'ICIJ',since:1997,tier:'A',region:'USA/Intl',notes:'Cross-border investigative — Panama Papers, etc.'},
+{name:'Online Journalism Awards',org:'ONA',since:2000,tier:'B',region:'USA/Intl',notes:'Digital journalism excellence'},
+{name:'One World Media Awards',org:'One World Media',since:1986,tier:'B',region:'UK/Intl',notes:'Developing world coverage in UK media'},
+{name:'Amnesty International Media Awards',org:'Amnesty International',since:1992,tier:'B',region:'UK/Intl',notes:'Human rights journalism recognition'},
+{name:'Drumbeat Awards',org:'African Investigative Journalism Conf',since:2007,tier:'B',region:'Africa/Intl',notes:'African investigative journalism recognition'},
+{name:'Headliners Awards',org:'National Headliner Awards',since:1934,tier:'C',region:'USA',notes:'One of oldest US journalism awards, broad categories'},
+{name:'Gabriel Awards',org:'Catholic Academy for Comm Arts',since:1965,tier:'C',region:'USA',notes:'Values-based broadcast journalism'},
+{name:'Webby Awards (Journalism)',org:'IADAS',since:1996,tier:'C',region:'USA/Intl',notes:'Digital journalism and online media'},
+{name:'Shorty Awards (Journalism)',org:'Shorty Awards',since:2009,tier:'D',region:'USA/Intl',notes:'Social media journalism, popularity-weighted'},
+{name:'Digiday Awards',org:'Digiday',since:2010,tier:'D',region:'USA',notes:'Media industry/digital publishing, commercial focus'},
+],
+'Architecture & Design':[
+{name:'Pritzker Architecture Prize',org:'Hyatt Foundation',since:1979,tier:'S',region:'USA/Intl',notes:'Nobel Prize of architecture — career achievement'},
+{name:'RIBA Royal Gold Medal',org:'Royal Institute of British Architects',since:1848,tier:'S',region:'UK/Intl',notes:"World's oldest architecture award — lifetime achievement"},
+{name:'AIA Gold Medal',org:'American Institute of Architects',since:1907,tier:'S',region:'USA/Intl',notes:'Highest US architecture honor'},
+{name:'Red Dot Design Award',org:'Design Zentrum Nordrhein Westfalen',since:1954,tier:'S',region:'Germany/Intl',notes:"World's largest design competition"},
+{name:'iF Design Award',org:'iF International Forum Design',since:1953,tier:'S',region:'Germany/Intl',notes:'One of the most recognized international design awards'},
+{name:'Mies van der Rohe Award',org:'EU / Mies van der Rohe Foundation',since:1988,tier:'A',region:'Europe',notes:'Premier European contemporary architecture prize'},
+{name:'Stirling Prize',org:'RIBA',since:1996,tier:'A',region:'UK',notes:'Best building in UK — peer and public recognition'},
+{name:'Good Design Award (G-Mark)',org:'Japan Institute of Design Promotion',since:1957,tier:'A',region:'Japan/Intl',notes:'Oldest comprehensive design award in Japan'},
+{name:'IDEA Awards',org:'IDSA',since:1980,tier:'A',region:'USA/Intl',notes:'Industrial design excellence, peer-evaluated'},
+{name:"Compasso d'Oro",org:'ADI',since:1954,tier:'A',region:'Italy',notes:'Oldest and most prestigious industrial design award'},
+{name:'Aga Khan Award for Architecture',org:'Aga Khan Development Network',since:1977,tier:'A',region:'Switzerland/Intl',notes:'Architecture serving Muslim communities globally'},
+{name:'D&AD Awards',org:'D&AD',since:1962,tier:'A',region:'UK/Intl',notes:'Highest standard in design and advertising — Black Pencil'},
+{name:'Core77 Design Awards',org:'Core77',since:2011,tier:'B',region:'USA/Intl',notes:'Industrial and product design community recognition'},
+{name:'Architizer A+ Awards',org:'Architizer',since:2013,tier:'B',region:'USA/Intl',notes:'Architecture and product design, large global reach'},
+{name:'Dezeen Awards',org:'Dezeen',since:2018,tier:'B',region:'UK/Intl',notes:'Architecture, interiors and design — growing fast'},
+{name:'FRAME Awards',org:'Frame Magazine',since:2017,tier:'B',region:'Netherlands/Intl',notes:'Interior and spatial design recognition'},
+{name:'Wallpaper* Design Awards',org:'Wallpaper*',since:1999,tier:'C',region:'UK/Intl',notes:'Media-led design recognition, commercial lens'},
+{name:'Elle Decoration EDIDA',org:'Elle Decoration',since:1994,tier:'C',region:'France/Intl',notes:'Interior design, lifestyle media driven'},
+{name:'World Architecture Festival Awards',org:'WAF',since:2008,tier:'C',region:'UK/Intl',notes:'Live presentations, broad categories'},
+{name:'CODA Awards',org:'Interior Design / CODA',since:2012,tier:'C',region:'USA/Intl',notes:'Commissioned art in design projects'},
+{name:'Houzz Design Awards',org:'Houzz',since:2014,tier:'D',region:'USA/Intl',notes:'Platform popularity contest, homeowner-voted'},
+{name:'Grand Designs Awards',org:'Grand Designs / Channel 4',since:2013,tier:'D',region:'UK',notes:'TV show spin-off, consumer-facing'},
+],
+'Visual Arts':[
+{name:'Turner Prize',org:'Tate Britain',since:1984,tier:'S',region:'UK',notes:'Most prestigious contemporary art prize in the UK, global attention'},
+{name:'Venice Biennale Golden Lion',org:'La Biennale di Venezia',since:1895,tier:'S',region:'Italy/Intl',notes:'Oldest and most prestigious international contemporary art event'},
+{name:'Praemium Imperiale',org:'Japan Art Association',since:1988,tier:'S',region:'Japan/Intl',notes:'Considered the Nobel Prize of the arts — five disciplines'},
+{name:'Hugo Boss Prize',org:'Solomon R. Guggenheim Foundation',since:1996,tier:'S',region:'USA/Intl',notes:'Biennial award for significant contemporary art — ran 1996–2022'},
+{name:'Prix Marcel Duchamp',org:'ADIAF / Centre Pompidou',since:2000,tier:'A',region:'France',notes:'Most prestigious French contemporary art prize'},
+{name:'Artes Mundi',org:'National Museum Wales',since:2002,tier:'A',region:'UK/Intl',notes:"UK's largest art prize — international artists"},
+{name:'Carnegie Prize',org:'Carnegie Museum of Art',since:1896,tier:'A',region:'USA',notes:'One of the oldest US prizes for contemporary art'},
+{name:'Oskar Kokoschka Prize',org:'Austrian Federal Government',since:1980,tier:'A',region:'Austria/Intl',notes:'Major European prize for applied and visual art'},
+{name:'Sobey Art Award',org:'Sobey Art Foundation / NGC',since:2002,tier:'A',region:'Canada',notes:"Canada's most important contemporary art prize"},
+{name:'Nam June Paik Award',org:'NRW-Forum / Art Foundation NRW',since:2004,tier:'A',region:'Germany/Intl',notes:'Media art and digital art recognition'},
+{name:'Frieze Artist Award',org:'Frieze',since:2013,tier:'B',region:'UK/Intl',notes:'Emerging artists at Frieze London/NY/Seoul'},
+{name:'Paul Hamlyn Foundation Awards',org:'Paul Hamlyn Foundation',since:1987,tier:'B',region:'UK',notes:'Supporting outstanding UK visual artists'},
+{name:'Aesthetica Art Prize',org:'Aesthetica Magazine',since:2008,tier:'C',region:'UK/Intl',notes:'Broad visual arts and new media, large open submission'},
+{name:'Saatchi Art Prize',org:'Saatchi Art',since:2013,tier:'C',region:'USA/Intl',notes:'Online platform competition, commercial gallery lens'},
+{name:'BP Portrait Award',org:'National Portrait Gallery',since:1980,tier:'C',region:'UK',notes:'Portraiture only, strong UK tradition'},
+{name:'NN Contemporary Art Prize',org:'NN Group',since:2015,tier:'C',region:'Netherlands/Intl',notes:'European contemporary art, younger prize'},
+{name:'Lumen Prize',org:'Lumen',since:2012,tier:'D',region:'UK/Intl',notes:'Digital and screen-based art, niche recognition'},
+{name:'ArtAward.Online',org:'Various',since:2015,tier:'D',region:'Intl',notes:'Open online competition, limited curatorial rigor'},
+],
+};
+
+const TIERS=['S','A','B','C','D'];
+const TL={S:'<strong>Global flagship</strong> — undisputed international prestige',A:'<strong>Major</strong> — strong industry weight, peer or critic recognition',B:'<strong>Significant</strong> — national/regional or specialized prestige',C:'<strong>Notable</strong> — genre, niche, or popular audience focus',D:'<strong>Minor</strong> — limited curatorial rigor or narrow reach'};
+
+let activeDomain='all', activeTiers=new Set(TIERS), searchQuery='';
+
+function getFiltered(){
+  const pool=activeDomain==='all'?Object.entries(DATA).flatMap(([d,a])=>a.map(x=>({...x,domain:d}))):(DATA[activeDomain]||[]).map(x=>({...x,domain:activeDomain}));
+  return pool.filter(a=>{
+    if(!activeTiers.has(a.tier))return false;
+    if(searchQuery){const q=searchQuery.toLowerCase();return a.name.toLowerCase().includes(q)||a.org.toLowerCase().includes(q)||a.region.toLowerCase().includes(q)||a.domain.toLowerCase().includes(q);}
+    return true;
+  });
+}
+
+function render(){
+  const filtered=getFiltered();
+  const byTier={};TIERS.forEach(t=>byTier[t]=[]);
+  filtered.forEach(a=>byTier[a.tier].push(a));
+
+  const ranks={};
+  Object.entries(DATA).forEach(([domain,awards])=>{
+    [...awards].sort((x,y)=>TIERS.indexOf(x.tier)-TIERS.indexOf(y.tier)).forEach((a,i)=>{ranks[domain+'::'+a.name]=i+1;});
+  });
+
+  let html='',total=0;const ds=new Set();
+  TIERS.forEach(tier=>{
+    const awards=byTier[tier];if(!awards.length)return;
+    total+=awards.length;awards.forEach(a=>ds.add(a.domain));
+    html+=`<div class="tier-section"><div class="tier-header"><div class="tier-badge ${tier}">${tier}</div><div><div style="font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px">Tier ${tier}</div><div class="tier-desc">${TL[tier]}</div></div></div><div class="awards-grid">`;
+    awards.forEach(a=>{
+      const rank=ranks[a.domain+'::'+a.name]||'—';
+      const col=DC[a.domain]||'#888';
+      html+=`<div class="award-card"><div class="card-top"><div class="award-name">${a.name}</div><div class="award-rank">#${rank}</div></div><div class="award-org">${a.org}</div><div class="card-meta"><span class="meta-tag" style="color:${col};border-color:${col}22">${a.domain}</span><span class="meta-tag">EST. ${a.since}</span><span class="meta-tag">${a.region}</span></div><div class="award-notes">${a.notes}</div></div>`;
+    });
+    html+=`</div></div>`;
+  });
+  if(!html)html=`<div class="no-results">No awards match your current filters.</div>`;
+  document.getElementById('mainContent').innerHTML=html;
+  document.getElementById('statCount').textContent=total;
+  document.getElementById('statDomains').textContent=ds.size;
+}
+
+document.getElementById('domainTabs').addEventListener('click',e=>{
+  const tab=e.target.closest('.tab');if(!tab)return;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  tab.classList.add('active');activeDomain=tab.dataset.domain;render();
+});
+document.getElementById('tierFilters').addEventListener('click',e=>{
+  const btn=e.target.closest('.tier-btn');if(!btn)return;
+  const tier=btn.dataset.tier;
+  if(activeTiers.has(tier)){if(activeTiers.size===1)return;activeTiers.delete(tier);btn.classList.add('dimmed');}
+  else{activeTiers.add(tier);btn.classList.remove('dimmed');}
+  render();
+});
+document.getElementById('searchInput').addEventListener('input',e=>{searchQuery=e.target.value.trim();render();});
+render();
+</script>
+</body>
+</html>
