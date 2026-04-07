@@ -1,5 +1,4 @@
-baseURL = "https://cesaire.netlify.app/"
-# baseURL = "https://localhost:1313/"
+baseURL = "https://cesaire.vercel.app/"
 languageCode = "en-us"
 title = "Mounah Honoré Césaire"
 theme = "PaperMod"
@@ -15,7 +14,7 @@ theme = "PaperMod"
   ShowCodeCopyButtons = true
   disableSpecial1stPost = false
   displayFullLangName = true
-  env = "development"
+  env = "production"
 
 [params.profileMode]
 enabled = true
