@@ -13,7 +13,7 @@ draft: false
 
 ## Summary
 
-I am a PhD student in Computer Science (expected Dec 2025) with expertise in **operating systems, Linux kernel scheduling, performance optimization, and heterogeneous CPU architectures**. Skilled in **low-level systems programming** (C/C++), benchmarking, and prototyping secure and high-performance systems, I have strong experience in leading projects, communicating technical results, and collaborating across teams. Seeking roles as R&D Engineer, Software Engineer, System Developer, or System Architect.
+I am a PhD student in Computer Science (expected June 2026) with expertise in **operating systems, Linux kernel scheduling, performance optimization, and heterogeneous CPU architectures**. Skilled in **low-level systems programming** (C/C++), benchmarking, and prototyping secure and high-performance systems, I have strong experience in leading projects, communicating technical results, and collaborating across teams. Seeking roles as R&D Engineer, Software Engineer, System Developer, or System Architect.
 
 ---
 
