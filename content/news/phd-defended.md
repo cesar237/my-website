@@ -20,5 +20,3 @@ The second part of my thesis investigates the performance and energy-efficiency 
 This Ph.D. has been a challenging but formative experience. It strengthened my interest in operating systems, performance analysis, kernel-level engineering, and the design of efficient computing systems.
 
 I am now looking forward to the next step: bringing this expertise to industry, ideally in an **R&D systems engineering** role focused on operating systems, performance, infrastructure, networking, or low-level software systems.
-
-Thank you to everyone who supported me during this journey.
