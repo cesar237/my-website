@@ -5,16 +5,22 @@ draft: false
 showToc: false
 ---
 
-## Hi, I'm Mounah Honoré Césaire!
+## Mounah Honoré Césaire, Ph.D!
+I recently defended my Ph.D. thesis, **“Understanding Linux Kernel Scheduling Bottlenecks,”** at Inria Rennes, IRISA, and the University of Rennes.
 
-I am a Ph.D. student specializing in Operating Systems and Networks, under the supervision of [Prof. David Bromberg](https://www.linkedin.com/in/ybromberg/), Full Professor at the University of Rennes, [Dr. Julia Lawall](https://who.paris.inria.fr/Julia.Lawall/), Head of Research at Inria Paris, and [Dr. Djob Mvondo](https://djobiii2078.github.io/), Associate Professor at the University of Rennes.
-My research focuses on VPN application scalability and CPU scheduling on heterogeneous architectures. I'm passionate about solving complex computing problems and advancing the field of computer science through innovative research.
+My research focused on understanding how Linux kernel scheduling mechanisms and execution APIs affect the performance of multithreaded systems applications and the energy efficiency of modern heterogeneous CPUs. In particular, I worked on WireGuard VPN scalability, kernel execution bottlenecks, and scheduling behavior on Intel hybrid architectures.
+
+I am interested in operating systems, networking, kernel-level performance analysis, benchmarking, and low-level software engineering. I am now looking for **R&D systems engineering**, **performance engineering**, or **low-level software engineering** opportunities in industry, especially in roles involving operating systems, networking, infrastructure, kernels, or hardware/software performance optimization. I am **available immediately** and open to **remote opportunities** as well as **relocation**.
 
 ### My Background
 
-I earned my Engineering degree in Computer Science from the National Advanced School of Engineering of Yaoundé (École Nationale Supérieure Polytechnique de Yaoundé) from 2017 to 2022. Prior to that, I completed my baccalaureate with specializations in Mathematics and Physical Sciences at Jacques de Bernon Bilingual College in Maroua, Cameroon.
+I recently completed my Ph.D. in Computer Science under the supervision of [Prof. David Bromberg](https://www.linkedin.com/in/ybromberg/), Full Professor at the University of Rennes, [Dr. Julia Lawall](https://who.paris.inria.fr/Julia.Lawall/), Research Director at Inria Paris, and [Dr. Djob Mvondo](https://djobiii2078.github.io/), Associate Professor at the University of Rennes.
 
-My academic journey has provided me with a strong foundation in computer science principles and a deep understanding of operating systems, which I continue to build upon through my doctoral research.
+<!-- During my Ph.D., I studied Linux scheduling bottlenecks in two main contexts: high-concurrency VPN workloads and heterogeneous CPU architectures. My work included a scalability study of WireGuard, the identification of **Execution Order Inversion** as a kernel scheduling pathology, an evaluation of Intel Performance/Efficient-core configurations, and the development of **HaaTool**, a benchmarking framework for heterogeneous CPU evaluation. -->
+
+I earned my Engineering degree in Computer Science from the **National Advanced School of Engineering of Yaoundé** (*École Nationale Supérieure Polytechnique de Yaoundé*) from 2017 to 2022. Prior to that, I completed my baccalaureate with specializations in Mathematics and Physical Sciences at **Jacques de Bernon Bilingual College** in Maroua, Cameroon.
+
+My academic and research journey has given me a strong foundation in computer science, operating systems, networking, performance evaluation, and empirical systems research.
 
 ### Research Interests
 
@@ -31,13 +37,13 @@ My academic journey has provided me with a strong foundation in computer science
 - System Performance Optimization
 - Research Methodology and Data Analysis
 
-### Soft Skills
+<!-- ### Soft Skills
 
 - Communication
 - Problem-solving
 - Adaptability
 - Teamwork \& Collaboration
-- Analytical mindset
+- Analytical mindset -->
 
 
 ### Personal Interests
@@ -52,6 +58,6 @@ When I'm not immersed in research, I enjoy:
 
 Feel free to connect with me to discuss research collaborations, share insights on operating systems and networks, or just chat about the latest manga series!
 
-Email: [cesaire.mounah-honore@inria.fr](mailto:cesaire.mounah-honore@inria.fr)  
+Email: [cesaire.mounah@gmail.com](mailto:cesaire.mounah@gmail.com)  
 LinkedIn: [linkedin.com/in/cesairemh](https://linkedin.com/in/cesairemh)  
 GitHub: [github.com/cesar237](https://github.com/cesar237)

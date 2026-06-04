@@ -1,8 +1,8 @@
 ---
-title: "Attending to EuroSYS 2024 Doctoral Workshop"
+title: "Attending to EuroSYS 2024   "
 date: 2024-04-25
 draft: false
-tags: ["personal", "phd", "Eurosys DW"]
+tags: ["personal", "phd", "Eurosys", "Doctoral Workshop"]
 ---
 
 I'm excited to share that I'll be attending the EuroSYS 2024 Doctoral Workshop! This is a fantastic opportunity to present my research, get feedback from experts in the field, and connect with fellow PhD students working on systems research.
