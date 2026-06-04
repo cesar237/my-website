@@ -20,8 +20,8 @@ theme = "PaperMod"
 
 [params.profileMode]
 enabled = true
-title = "Mounah Honoré Césaire"
-subtitle = "Ph.D Student in Operating Systems and Networking @ Inria, Rennes, France."
+title = "Mounah Honoré Césaire, Ph.D"
+subtitle = "Systems & Performance Engineer | Kernel Enthusiast | Rennes, France | Open to Remote & Relocation."
 imageUrl = "profile.png"
 imageTitle = "Cesaire M.H."
 
