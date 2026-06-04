@@ -1,4 +1,6 @@
-baseURL = "https://cesaire.vercel.app/"
+baseURL = "https://www.cesairemh.com/"
+#baseURL = "https://cesaire.netlify.app/"
+#baseURL = "https://localhost:1313/"
 languageCode = "en-us"
 title = "Mounah Honoré Césaire"
 theme = "PaperMod"
@@ -15,11 +17,12 @@ theme = "PaperMod"
   disableSpecial1stPost = false
   displayFullLangName = true
   env = "production"
+  env = "production"
 
 [params.profileMode]
 enabled = true
-title = "Mounah Honoré Césaire"
-subtitle = "Ph.D Student in Operating Systems and Networking @ Inria, Rennes, France."
+title = "Mounah Honoré Césaire, Ph.D"
+subtitle = "Systems & Performance Engineer | Kernel Enthusiast | Rennes, France | Open to Remote & Relocation."
 imageUrl = "profile.png"
 imageTitle = "Cesaire M.H."
 
@@ -27,9 +30,9 @@ imageTitle = "Cesaire M.H."
 name = "News"
 url = "/news"
 
-[[params.profileMode.buttons]]
-name = "Projects"
-url = "/projects"
+#[[params.profileMode.buttons]]
+#name = "Projects"
+#url = "/projects"
 
 [[params.profileMode.buttons]]
 name = "Papers"
@@ -71,11 +74,11 @@ name = "Publications"
 url = "/papers/"
 weight = 25
 
-[[menu.main]]
-identifier = "projects"
-name = "Projects"
-url = "/projects/"
-weight = 30 
+#[[menu.main]]
+#identifier = "projects"
+#name = "Projects"
+#url = "/projects/"
+#weight = 30 
 
 [[menu.main]]
 identifier = "resume"
