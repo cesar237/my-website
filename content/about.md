@@ -5,7 +5,6 @@ draft: false
 showToc: false
 ---
 
-## Mounah Honoré Césaire, Ph.D!
 I recently defended my Ph.D. thesis, **“Understanding Linux Kernel Scheduling Bottlenecks,”** at Inria Rennes, IRISA, and the University of Rennes.
 
 My research focused on understanding how Linux kernel scheduling mechanisms and execution APIs affect the performance of multithreaded systems applications and the energy efficiency of modern heterogeneous CPUs. In particular, I worked on WireGuard VPN scalability, kernel execution bottlenecks, and scheduling behavior on Intel hybrid architectures.
