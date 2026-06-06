@@ -22,7 +22,7 @@ theme = "PaperMod"
 enabled = true
 title = "Mounah Honoré Césaire, Ph.D"
 subtitle = "Systems & Performance Engineer | Kernel Enthusiast | Rennes, France | Open to Remote & Relocation."
-imageUrl = "profile.png"
+imageUrl = "picture.png"
 imageTitle = "Cesaire M.H."
 
 [[params.profileMode.buttons]]
