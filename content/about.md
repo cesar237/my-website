@@ -1,19 +1,17 @@
 ---
-title: "About Me"
+title: "Hello, I'm Césaire!"
 date: 2025-03-16
 draft: false
 showToc: false
 ---
 
-I recently defended my Ph.D. thesis, **“Understanding Linux Kernel Scheduling Bottlenecks,”** at Inria Rennes, IRISA, and the University of Rennes.
+I asm a research engineer specialised in systems and performances of scalable applications.
+I hold a Ph.D. in Computer Science under the supervision of [Prof. David Bromberg](https://www.linkedin.com/in/ybromberg/), Full Professor at the University of Rennes, [Dr. Julia Lawall](https://who.paris.inria.fr/Julia.Lawall/), Research Director at Inria Paris, and [Dr. Djob Mvondo](https://djobiii2078.github.io/), Associate Professor at the University of Rennes.
 
-My research focused on understanding how Linux kernel scheduling mechanisms and execution APIs affect the performance of multithreaded systems applications and the energy efficiency of modern heterogeneous CPUs. In particular, I worked on WireGuard VPN scalability, kernel execution bottlenecks, and scheduling behavior on Intel hybrid architectures.
+My work focus on understanding how Linux kernel scheduling mechanisms and execution APIs affect the performance of multithreaded systems applications and the energy efficiency of modern heterogeneous CPUs. In particular, I worked on WireGuard VPN scalability, kernel execution bottlenecks, and scheduling behavior on Intel hybrid architectures.
 
-I am interested in operating systems, networking, kernel-level performance analysis, benchmarking, and low-level software engineering. I am now looking for **R&D systems engineering**, **performance engineering**, or **low-level software engineering** opportunities in industry, especially in roles involving operating systems, networking, infrastructure, kernels, or hardware/software performance optimization. I am **available immediately** and open to **remote opportunities** as well as **relocation**.
-
-### My Background
-
-I recently completed my Ph.D. in Computer Science under the supervision of [Prof. David Bromberg](https://www.linkedin.com/in/ybromberg/), Full Professor at the University of Rennes, [Dr. Julia Lawall](https://who.paris.inria.fr/Julia.Lawall/), Research Director at Inria Paris, and [Dr. Djob Mvondo](https://djobiii2078.github.io/), Associate Professor at the University of Rennes.
+I am interested in operating systems, networking, kernel-level performance analysis, and low-level software engineering. I am now looking for **R&D systems engineering**, **performance engineering**, or **low-level software engineering** opportunities.
+I am **available immediately** and open to **remote opportunities** as well as **relocation**.
 
 <!-- During my Ph.D., I studied Linux scheduling bottlenecks in two main contexts: high-concurrency VPN workloads and heterogeneous CPU architectures. My work included a scalability study of WireGuard, the identification of **Execution Order Inversion** as a kernel scheduling pathology, an evaluation of Intel Performance/Efficient-core configurations, and the development of **HaaTool**, a benchmarking framework for heterogeneous CPU evaluation. -->
 
