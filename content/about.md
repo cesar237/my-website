@@ -5,7 +5,7 @@ draft: false
 showToc: false
 ---
 
-I asm a research engineer specialised in systems and performances of scalable applications.
+I am a research engineer specialised in systems and performances of scalable applications.
 I hold a Ph.D. in Computer Science under the supervision of [Prof. David Bromberg](https://www.linkedin.com/in/ybromberg/), Full Professor at the University of Rennes, [Dr. Julia Lawall](https://who.paris.inria.fr/Julia.Lawall/), Research Director at Inria Paris, and [Dr. Djob Mvondo](https://djobiii2078.github.io/), Associate Professor at the University of Rennes.
 
 My work focus on understanding how Linux kernel scheduling mechanisms and execution APIs affect the performance of multithreaded systems applications and the energy efficiency of modern heterogeneous CPUs. In particular, I worked on WireGuard VPN scalability, kernel execution bottlenecks, and scheduling behavior on Intel hybrid architectures.
