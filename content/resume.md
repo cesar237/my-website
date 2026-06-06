@@ -94,22 +94,22 @@ An automated framework for testing the performance and energy efficiency of hete
 
 ### InodeGuard
 
-[GitHub](https://github.com/cesar237)  
+[GitHub](https://github.com/cesar237/inodeguard)  
 An eBPF-based file lifecycle hook framework enabling per-file security policies and side-effect monitoring. *Stack: C, eBPF, Linux kernel.*
 
-### HookFS
+### PolicyFS
 
-[GitHub](https://github.com/cesar237)  
+[GitHub](https://github.com/cesar237/PolicyFS)  
 A FUSE-based filesystem with WebAssembly programmable hooks for per-file policy enforcement and programmable I/O interception. *Stack: C, FUSE, WebAssembly (Wasmtime).*
 
 ### Vente Enchères
 
-[GitHub](https://github.com/cesar237)  
+[GitHub](https://github.com/cesar237/vente-enchere)  
 A real-time auction platform enabling local agricultural producers to sell products directly to wholesalers with price control. *Stack: React, Python, Django, WebSocket, PostgreSQL.*
 
 ### LedMatrixGenerator
 
-[GitHub](https://github.com/cesar237)  
+[GitHub](https://github.com/cesar237/led-matrix-motif-generator)  
 A React application for generating binary patterns readable by EEPROMs to drive LED matrix displays. *Stack: React, JavaScript, embedded systems interfacing.*
 
 ---
