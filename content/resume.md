@@ -82,7 +82,12 @@ I am a finishing PhD student in Computer Science with expertise in **operating s
 
 ## Projects
 
-### TunnelR
+### SignalKit
+
+[GitHub](https://github.com/cesar237/signalkit)  
+A system event-based automation tool based on DBus signals.. *Stack: C, DBus.*
+
+<!-- ### TunnelR
 
 [GitHub](https://github.com/cesar237)  
 A VPN-agnostic split tunneling CLI tool for secure, context-aware network routing. *Stack: Go, networking, VPN technologies.*
@@ -90,7 +95,7 @@ A VPN-agnostic split tunneling CLI tool for secure, context-aware network routin
 ### HaaTool
 
 [GitHub](https://github.com/cesar237)  
-An automated framework for testing the performance and energy efficiency of heterogeneous CPUs across DVFS governors. *Stack: Bash, Python, perf, Jupyter.*
+An automated framework for testing the performance and energy efficiency of heterogeneous CPUs across DVFS governors. *Stack: Bash, Python, perf, Jupyter.* -->
 
 ### InodeGuard
 
