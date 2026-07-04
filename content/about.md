@@ -15,7 +15,8 @@ I am **available immediately** and open to **remote opportunities** as well as *
 
 <!-- During my Ph.D., I studied Linux scheduling bottlenecks in two main contexts: high-concurrency VPN workloads and heterogeneous CPU architectures. My work included a scalability study of WireGuard, the identification of **Execution Order Inversion** as a kernel scheduling pathology, an evaluation of Intel Performance/Efficient-core configurations, and the development of **HaaTool**, a benchmarking framework for heterogeneous CPU evaluation. -->
 
-I earned my Engineering degree in Computer Science from the **National Advanced School of Engineering of Yaoundé** (*École Nationale Supérieure Polytechnique de Yaoundé*) from 2017 to 2022. Prior to that, I completed my baccalaureate with specializations in Mathematics and Physical Sciences at **Jacques de Bernon Bilingual College** in Maroua, Cameroon.
+I earned my Engineering degree in Computer Science from the **National Advanced School of Engineering of Yaoundé** (*École Nationale Supérieure Polytechnique de Yaoundé*) from 2017 to 2022. 
+<!-- Prior to that, I completed my baccalaureate with specializations in Mathematics and Physical Sciences at **Jacques de Bernon Bilingual College** in Maroua, Cameroon. -->
 
 My academic and research journey has given me a strong foundation in computer science, operating systems, networking, performance evaluation, and empirical systems research.
 
